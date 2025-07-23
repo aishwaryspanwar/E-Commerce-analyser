@@ -4,27 +4,27 @@ This repository contains an AI-driven web scraping application built with Stream
 
 ## 🚀 Features
 
-* **Multi-site scraping**: Choose between Amazon, Flipkart, Myntra, Ajio, and Meesho.
-* **Headless browser**: Uses Selenium with headless Chrome for fast, GUI-free scraping.
-* **Human-like behavior**: Randomized user-agents, delays, and scrolling to evade bot detection.
-* **Content cleaning**: Extract and clean the page body text with BeautifulSoup.
-* **LLM parsing**: Chunked DOM content is sent to Ollama's `llama3` model via LangChain to extract product name, price, and review in structured Markdown tables.
-* **Interactive UI**: Streamlit frontend to select site, enter queries, view scraped text, and trigger analysis.
+- **Multi-site scraping**: Choose between Amazon, Flipkart, Myntra, Ajio, and Meesho.
+- **Headless browser**: Uses Selenium with headless Chrome for fast, GUI-free scraping.
+- **Human-like behavior**: Randomized user-agents, delays, and scrolling to evade bot detection.
+- **Content cleaning**: Extract and clean the page body text with BeautifulSoup.
+- **LLM parsing**: Chunked DOM content is sent to Ollama's `llama3` model via LangChain to extract product name, price, and review in structured Markdown tables.
+- **Interactive UI**: Streamlit frontend to select site, enter queries, view scraped text, and trigger analysis.
 
 ## 📦 Tech Stack
 
-* **Python 3.8+**
-* **Streamlit** for the web interface
-* **Selenium** for browser automation
-* **BeautifulSoup** for HTML parsing
-* **LangChain & LangChain-Ollama** for LLM orchestration
-* **Ollama LLM (`llama3`)** as the language model
+- **Python 3.8+**
+- **Streamlit** for the web interface
+- **Selenium** for browser automation
+- **BeautifulSoup** for HTML parsing
+- **LangChain & LangChain-Ollama** for LLM orchestration
+- **Ollama LLM (`llama3`)** as the language model
 
 ## 🔧 Prerequisites
 
-* [Python 3.8+](https://www.python.org/downloads/)
-* [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) matching your Chrome version
-* **Optional**: `.env` file with `SBR_WEBDRIVER` if using a remote Selenium server
+- [Python 3.8+](https://www.python.org/downloads/)
+- [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) matching your Chrome version
+- **Optional**: `.env` file with `SBR_WEBDRIVER` if using a remote Selenium server
 
 ## 🛠 Installation
 
@@ -55,10 +55,7 @@ This repository contains an AI-driven web scraping application built with Stream
 Create a `.env` file at the project root with any of these variables:
 
 ```dotenv
-# If using a remote Selenium server (e.g., Selenium Grid):
-SBR_WEBDRIVER=http://localhost:4444/wd/hub
-
-# Otherwise, local ChromeDriver path is set in scrape.py:
+# local ChromeDriver path is set in scrape.py:
 # CHROME_DRIVER_PATH=./chromedriver.exe
 ```
 
@@ -88,9 +85,9 @@ streamlit run main.py
 
 ## 🐞 Troubleshooting
 
-* **`ModuleNotFoundError: No module named 'undetected_chromedriver'`**: Ensure you install only `selenium` and remove stealth imports if not using undetected-chromedriver.
-* **Chrome logging noise**: Add `options.add_argument("--log-level=3")` or `options.add_experimental_option("excludeSwitches", ["enable-logging"])` to suppress.
-* **CAPTCHAs**: Consider integrating a solver or adding manual intervention when a CAPTCHA appears.
+- **`ModuleNotFoundError: No module named 'undetected_chromedriver'`**: Ensure you install only `selenium` and remove stealth imports if not using undetected-chromedriver.
+- **Chrome logging noise**: Add `options.add_argument("--log-level=3")` or `options.add_experimental_option("excludeSwitches", ["enable-logging"])` to suppress.
+- **CAPTCHAs**: Consider integrating a solver or adding manual intervention when a CAPTCHA appears.
 
 ## 🤝 Contributing
 
@@ -108,12 +105,12 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 🙏 Acknowledgements
 
-* [Streamlit](https://streamlit.io/)
-* [Selenium](https://selenium.dev/)
-* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
-* [LangChain](https://github.com/langchain-ai/langchain)
-* [Ollama](https://ollama.ai/)
+- [Streamlit](https://streamlit.io/)
+- [Selenium](https://selenium.dev/)
+- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/)
+- [LangChain](https://github.com/langchain-ai/langchain)
+- [Ollama](https://ollama.ai/)
 
 ---
 
-*Happy scraping!*
+_Happy scraping!_
