@@ -8,7 +8,7 @@ This repository contains an AI-driven web scraping application built with Stream
 - **Headless browser**: Uses Selenium with headless Chrome for fast, GUI-free scraping.
 - **Human-like behavior**: Randomized user-agents, delays, and scrolling to evade bot detection.
 - **Content cleaning**: Extract and clean the page body text with BeautifulSoup.
-- **LLM parsing**: Chunked DOM content is sent to Ollama's `llama3` model via LangChain to extract product name, price, and review in structured Markdown tables.
+- **LLM parsing**: Chunked DOM content is sent to Ollama's `gemma3` model via LangChain to extract product name, price, and review in structured Markdown tables.
 - **Interactive UI**: Streamlit frontend to select site, enter queries, view scraped text, and trigger analysis.
 
 ## 📦 Tech Stack
@@ -18,7 +18,7 @@ This repository contains an AI-driven web scraping application built with Stream
 - **Selenium** for browser automation
 - **BeautifulSoup** for HTML parsing
 - **LangChain & LangChain-Ollama** for LLM orchestration
-- **Ollama LLM (`llama3`)** as the language model
+- **Ollama LLM (`gemma3`)** as the language model
 
 ## 🔧 Prerequisites
 
@@ -88,20 +88,6 @@ streamlit run main.py
 - **`ModuleNotFoundError: No module named 'undetected_chromedriver'`**: Ensure you install only `selenium` and remove stealth imports if not using undetected-chromedriver.
 - **Chrome logging noise**: Add `options.add_argument("--log-level=3")` or `options.add_experimental_option("excludeSwitches", ["enable-logging"])` to suppress.
 - **CAPTCHAs**: Consider integrating a solver or adding manual intervention when a CAPTCHA appears.
-
-## 🤝 Contributing
-
-Contributions are welcome! To propose changes:
-
-1. Fork the repo.
-2. Create a feature branch (`git checkout -b feature/my-feature`).
-3. Commit your changes (`git commit -m "Add feature"`).
-4. Push to your branch (`git push origin feature/my-feature`).
-5. Open a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## 🙏 Acknowledgements
 
