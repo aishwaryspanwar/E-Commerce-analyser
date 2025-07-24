@@ -9,8 +9,10 @@ from selenium.webdriver.chrome.options import Options
 
 CHROME_DRIVER_PATH = "./chromedriver.exe"
 USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.198 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/114.0.5735.198 Safari/537.36",
 ]
 
 def build_search_url(site: str, query: str) -> str:
@@ -63,27 +65,18 @@ def extract_product_sections(site: str, html: str) -> List[str]:
     soup = BeautifulSoup(html, "html.parser")
     key = site.lower()
     if key == "amazon":
-        elems = soup.select(
-        "div.s-main-slot > div[data-asin][data-asin!='']"
-    )
+        elems = soup.select("div.s-main-slot > div[data-asin][data-asin!='']")
     elif key == "flipkart":
-        elems = [
-            e for e in soup.select("div._1AtVbE")
-            if e.select_one("a") and e.select_one("a")["href"].startswith("/")
-        ]
+        elems = soup.select("div.cPHDOP.col-12-12")
     elif key == "myntra":
         elems = soup.select("li.product-base")
     elif key == "ajio":
         elems = soup.select("div.rilrtl-products-list__item")
     elif key == "meesho":
-        elems = soup.select("div[data-qa='product-card']")
+        elems = soup.select("div.sc-dkrFOg.ProductListItem__GridCol-sc-1baba2g-0.ieFkkv.kdQjpv")
     else:
         elems = [soup.body] if soup.body else []
     return [str(el) for el in elems]
-
-def extract_body_content(html_content: str) -> str:
-    soup = BeautifulSoup(html_content, "html.parser")
-    return str(soup.body or "")
 
 def clean_body_content(body_content: str) -> str:
     soup = BeautifulSoup(body_content, "html.parser")
